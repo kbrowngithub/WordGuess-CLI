@@ -7,10 +7,12 @@ var Word = function(word) {
             this.letters.push(new Letter(letter));
         });
     }
+    this.createWordArr(word);
     this.getWord = function() {
         var word = "";
         this.letters.forEach(letter => {
             word += letter.getLetter();
+            console.log(`word now = ${word}`);
         });
         return word;
     }
@@ -20,5 +22,9 @@ var Word = function(word) {
         });
     }
 }
+
+var word = new Word("test");
+
+word.getWord();
 
 module.exports = Word;

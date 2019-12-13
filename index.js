@@ -2,7 +2,7 @@ var randomWords = require('random-words');
 var inquirer = require('inquirer');
 var Word = require('./Word.js');
 
-var word = randomWords();
+var word = randomWords().toUpperCase();
 console.log(`Current word is ${word}`);
 
 var currWord = new Word(word);
@@ -20,5 +20,6 @@ inquirer.prompt([
     }
 ]).then(function (answer) {
     console.log(`Guessed letter is ${answer.guessedLetter.toUpperCase()}`);
-    
+    currWord.guess(answer.guessedLetter.toUpperCase());
+    console.log(`Word Display: ${currWord.getWord()}`);
 });
