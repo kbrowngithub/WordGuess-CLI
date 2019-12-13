@@ -11,14 +11,14 @@ var Word = function(word) {
     this.getWord = function() {
         var word = "";
         this.letters.forEach(letter => {
-            word += letter.getLetter();
-            console.log(`word now = ${word}`);
+            word += letter.getLetter() + " ";
         });
         return word;
     }
     this.guess = function(character) {
         this.letters.forEach(letter => {
-            letter.guessLetter();
+            // console.log(`calling guessLetter(): letter = ${character}`);
+            letter.guessLetter(character);
         });
     }
 }
