@@ -37,12 +37,12 @@ function play(guesses) {
         currWord.showGame(guessedLetters, guesses);
 
         // console.log(`Guesses: ${guesses}, More Letters: ${currWord.moreLetters()}`);
-        if (guesses > 0 && currWord.moreLetters()) {
+        if (guesses >= 1 && currWord.moreLetters()) {
             guesses--;
             play(guesses);
         } else {
-            // console.log(`${currWord.showGame()}`);
-            if(guesses > 0) {
+            currWord.showGame(guessedLetters, -1);
+            if(guesses >= 1) {
                 console.log('****** YOU WON! ******');
             } else {
                 console.log(`Out of Guesses. The word was: ${word}`);

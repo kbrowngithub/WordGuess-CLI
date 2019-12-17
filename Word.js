@@ -33,8 +33,9 @@ var Word = function(word) {
     this.endStr = `  \n`;
 
     this.showGame = function(arr, gr) {
+        process.stdout.write('\033c'); // Refresh the screen on each turn
         console.log(`\n\n${this.dispStr}${this.dispStr}`);
-        if(arr !== undefined){console.log(`REMAINING GUESSES:  ${gr}\nGUESSED LETTERS:    ${arr.join(" ").toUpperCase()}\n`);}
+        if(arr !== undefined){console.log(`REMAINING GUESSES:  ${gr+1}\nGUESSED LETTERS:    ${arr.join(" ").toUpperCase()}\n`);}
         console.log(`${this.startStr}${this.getWord()}${this.endStr}`);
         console.log(`${this.dispStr}${this.dispStr}`);
     }
