@@ -14,6 +14,9 @@ var Letter = function(letter) {
         // guess === this.letter ? this.guessed = true : this.guessed = false;
         if(guess === this.letter) {
             this.guessed = true;
+            return true;
+        } else {
+            return false;
         }
     }
 }

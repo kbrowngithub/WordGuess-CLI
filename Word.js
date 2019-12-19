@@ -25,15 +25,19 @@ var Word = function(word) {
         return this.lettersRemaining;
     }
     this.guess = function(character) {
+        var status = `INCORRECT!`;
         this.letters.forEach(letter => {
-            letter.guessLetter(character);
+            if(letter.guessLetter(character)) {
+                status = `CORRECT!`;
+            }
         });
+        return status;
     }
     this.dispStr = `XXXXXXXXXXXXXXXXXXXXXXXXXX`;
     this.startStr = `\nWord:      `;
     this.endStr = `  \n`;
 
-    this.showGame = function(arr, gr) {
+    this.showGame = function(arr, gr, gs) {
         process.stdout.write('\033c'); // Refresh the screen on each turn
         console.log(`\n\n${this.dispStr}${this.dispStr}`);
         if(arr !== undefined){console.log(`REMAINING GUESSES:  ${gr+1}\nGUESSED LETTERS:    ${arr.join(" ").toUpperCase()}\n`);}

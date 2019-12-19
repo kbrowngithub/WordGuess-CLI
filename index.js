@@ -6,12 +6,12 @@ var Word = require('./Word.js');
 // console.log(`Current word is ${word}`);
 
 function play(guesses) {
-    currWord.showGame(guessedLetters, guesses);
+    currWord.showGame(guessedLetters, guesses, lastGuess);
     inquirer.prompt([
         {
             type: "input",
             name: "guessedLetter",
-            message: "\n\n\nType a letter to guess:  ",
+            message: "\n"+lastGuess+"\nType a letter to guess:  ",
             validate: function validateLetter(value) {
                 var pass = value.match(/^[A-Za-z]+$/);
                 if (pass) {
@@ -27,9 +27,9 @@ function play(guesses) {
         }
     ]).then(answer => {
         // console.log(`Guessed letter is ${answer.guessedLetter.toUpperCase()}`);
-        currWord.guess(answer.guessedLetter.toString().toUpperCase());
-        // console.log(`Word Display: ${currWord.getWord()}`);
+        lastGuess = currWord.guess(answer.guessedLetter.toString().toUpperCase());
         currWord.showGame(guessedLetters, guesses);
+        console.log(`Last Guess: ${lastGuess}`);
 
         // console.log(`Guesses: ${guesses}, More Letters: ${currWord.moreLetters()}`);
         if (guesses >= 1 && currWord.moreLetters()) {
@@ -45,6 +45,7 @@ function play(guesses) {
             currWord = new Word(randomWords().toUpperCase());
             guesses = 9;
             guessedLetters = [];
+            lastGuess = "";
             inquirer.prompt([
                 {
                     type: "confirm",
@@ -66,4 +67,5 @@ function play(guesses) {
 var currWord = new Word(randomWords().toUpperCase());
 var guesses = 9;
 var guessedLetters = [];
+var lastGuess = "";
 play(guesses);
