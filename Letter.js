@@ -1,7 +1,6 @@
 var Letter = function(letter) {
     this.guessed = false;
     this.letter = letter.toUpperCase();
-    this.getLetter = function() {return this.letter;}
     this.getLetter = function() { 
         // return this.guessed ? this.letter : "_"; 
         if(this.guessed) {

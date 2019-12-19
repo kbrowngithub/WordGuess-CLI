@@ -1,6 +1,7 @@
 var Letter = require("./Letter.js");
 
 var Word = function(word) {
+    this.word = word.toUpperCase();
     this.letters = [];
     this.lettersRemaining = false;
     this.createWordArr = function(word) {
@@ -8,7 +9,7 @@ var Word = function(word) {
             this.letters.push(new Letter(letter));
         });
     }
-    this.createWordArr(word);
+    this.createWordArr(this.word);
     this.getWord = function() {
         var word = "";
         this.lettersRemaining = false;
