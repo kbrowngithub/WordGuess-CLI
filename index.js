@@ -64,8 +64,8 @@ function play(guesses) {
     });
 }
 
-// var currWord = new Word(randomWords().toUpperCase());
-var currWord = new Word("RANDOM");
+var currWord = new Word(randomWords().toUpperCase());
+// var currWord = new Word("RANDOM");
 var guesses = 9;
 var guessedLetters = [];
 var lastGuess = "";
