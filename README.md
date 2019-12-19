@@ -28,7 +28,8 @@ package.
 
         - Each time the user guesses a letter the screen is refreshed with the new game data.
 
-        - Once the user uses all their guesses or correctly guesses all the letters the user is notified   as to whether or not they won and, if not a win, the correct word is displayed.
+        - Once the user uses all their guesses or correctly guesses all the letters the user is 
+          notified as to whether or not they won and, if not a win, the correct word is displayed.
         
         The user is then prompted to play again.
             - If the user opts to play again the game is refreshed with a new word and the number of 
@@ -68,23 +69,9 @@ Node Dependencies:
 ### Setup
 
 ```
-1.) clone liri-node-app to your computer (git@github.com:kbrowngithub/liri-node-app.git)
+1.) clone WordGuess-CLI to your computer (git@github.com:kbrowngithub/WordGuess-CLI.git)
 
-2.) You'll need a Spotify API key. You can sign up here:
-https://developer.spotify.com/my-applications/#!/login
-Then follow the directions to create a new app.
-
-3.) Once you have the Spotify key create a .env file containing the following 
-    (replacing "your-spotify-id-here" with the spotify id you just received and 
-    "your-spotify-secret-here" with the secret that you just received):
-        
-        # Spotify API keys
-        SPOTIFY_ID=your-spotify-id-here
-        SPOTIFY_SECRET=your-spotify-secret-here
-
-Save it in the root directory of your liri-node-app instance.
-
-4.) From a terminal cd into the root directory of your liri-node-app instance and run
+2.) From a terminal cd into the root directory of your WordGuess-CLI instance and run
 the command:  npm install
 This will install the required node packages.
 ```
